@@ -30,11 +30,16 @@ function changeSlide(step) {
   showSlide(slideIndex + step);
 }
 
+function autoAdvance() {
+  changeSlide(1);
+  window.setTimeout(autoAdvance, 4000);
+}
+
 previousButton.addEventListener('click', () => changeSlide(-1));
 nextButton.addEventListener('click', () => changeSlide(1));
 
 if (slides.length > 0) {
   buildDots();
   showSlide(0);
-  setInterval(() => changeSlide(1), 4000);
+  window.setTimeout(autoAdvance, 4000);
 }
