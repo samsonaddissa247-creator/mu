@@ -223,52 +223,15 @@
       </div>
     
 
-      <button class="nav-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
-      <button class="nav-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
+      <button class="nav-btn prev-btn" type="button">&#10094;</button>
+      <button class="nav-btn next-btn" type="button">&#10095;</button>
     </div>
     <div class="dots" id="dotsContainer"></div>
   </div>
 
   <footer>Made with 💜 for my bestie</footer>
 
-<script>
-  let slideIndex = 0;
-  const slides = document.querySelectorAll('.slide');
-  const dotsContainer = document.getElementById('dotsContainer');
-  const noPhotosMsg = document.getElementById('noPhotosMsg');
-
-  function buildDots() {
-    dotsContainer.innerHTML = '';
-    slides.forEach((_, i) => {
-      const dot = document.createElement('span');
-      dot.classList.add('dot');
-      dot.onclick = () => showSlide(i);
-      dotsContainer.appendChild(dot);
-    });
-  }
-
-  function showSlide(index) {
-    if (slides.length === 0) return;
-    slides.forEach(s => s.classList.remove('active'));
-    const dots = document.querySelectorAll('.dot');
-    dots.forEach(d => d.classList.remove('active'));
-
-    slideIndex = (index + slides.length) % slides.length;
-    slides[slideIndex].classList.add('active');
-    if (dots[slideIndex]) dots[slideIndex].classList.add('active');
-  }
-
-  function changeSlide(step) {
-    showSlide(slideIndex + step);
-  }
-
-  if (slides.length > 0) {
-    buildDots();
-    showSlide(0);
-    // Auto-advance every 4 seconds
-    setInterval(() => changeSlide(1), 4000);
-  }
-</script>
+<script src="script.js" defer></script>
 
 </body>
 </html>
