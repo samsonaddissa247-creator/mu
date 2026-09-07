@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Bestie 💜</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #4b0082, #8a2be2, #9370db);
+    background-size: 400% 400%;
+    animation: gradientShift 12s ease infinite;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px 20px;
+    text-align: center;
+    overflow-x: hidden;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .message-box {
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(6px);
+    border-radius: 20px;
+    padding: 40px 30px;
+    margin-top: 40px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    animation: fadeInDown 1.4s ease;
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .message-box h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+
+  .message-box p {
+    font-size: 1.2em;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .signature {
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 1.1em;
+    opacity: 0.9;
+  }
+
+  .heart {
+    display: inline-block;
+    animation: pulse 1.2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+  }
+
+  /* Slideshow */
+  .slideshow-section {
+    margin-top: 60px;
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .slideshow-section h2 {
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  .slideshow-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    animation: fadeIn 1s ease;
+  }
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .slide.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.45);
+    padding: 10px;
+    font-size: 0.95em;
+  }
+
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.25);
+    border: none;
+    color: #fff;
+    font-size: 1.8em;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .nav-btn:hover {
+    background: rgba(255,255,255,0.45);
+  }
+
+  .prev-btn { left: 12px; }
+  .next-btn { right: 12px; }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .dot.active {
+    background: #fff;
+  }
+
+  .no-photos {
+    padding: 40px 20px;
+    font-size: 1em;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+
+  footer {
+    margin-top: 50px;
+    opacity: 0.7;
+    font-size: 0.9em;
+  }
+</style>
+</head>
+<body>
+
+  <div class="message-box">
+    <h1>Dear Bestie <span class="heart">💜</span></h1>
+    <p>You are the best, and you are one of the best people I have ever met.</p>
+    <p>You make me feel happy.</p>
+    <div class="signature">— from your #DM</div>
+  </div>
+
+  <div class="slideshow-section">
+    <h2>Our Memories 📸</h2>
+    <div class="slideshow-container" id="slideshowContainer">
+      
+     
+      <div class="slide">
+        <img src="assets/IMG-20260903-WA0006.jpg" alt="Memory 1">
+        <div class="slide-caption">that one besty 💛</div>
+      </div>
+      <div class="slide">
+        <img src="assets/IMG-20260903-WA0007.jpg" alt="Memory 2">
+        <div class="slide-caption">you in your pjs</div>
+      </div>
+      <div class="slide">
+        <img src="assets/IMG-20260903-WA0008.jpg" alt="Memory 3">
+        <div class="slide-caption">look at that cute face 💛</div>
+      </div>
+      <div class="slide">
+        <img src="assets/IMG-20260903-WA0009.jpg" alt="Memory 4">
+        <div class="slide-caption">look at that face  💛</div>
+      </div><div class="slide">
+        <img src="assets/IMG-20260906-WA0010.jpg" alt="Memory 5">
+        <div class="slide-caption">the dancing day that l missed 💛</div>
+      </div>
+    
+
+      <button class="nav-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="nav-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+    <div class="dots" id="dotsContainer"></div>
+  </div>
+
+  <footer>Made with 💜 for my bestie</footer>
+
+<script>
+  let slideIndex = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('dotsContainer');
+  const noPhotosMsg = document.getElementById('noPhotosMsg');
+
+  function buildDots() {
+    dotsContainer.innerHTML = '';
+    slides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      dot.onclick = () => showSlide(i);
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  function showSlide(index) {
+    if (slides.length === 0) return;
+    slides.forEach(s => s.classList.remove('active'));
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach(d => d.classList.remove('active'));
+
+    slideIndex = (index + slides.length) % slides.length;
+    slides[slideIndex].classList.add('active');
+    if (dots[slideIndex]) dots[slideIndex].classList.add('active');
+  }
+
+  function changeSlide(step) {
+    showSlide(slideIndex + step);
+  }
+
+  if (slides.length > 0) {
+    noPhotosMsg.style.display = 'none';
+    buildDots();
+    showSlide(0);
+    // Auto-advance every 4 seconds
+    setInterval(() => changeSlide(1), 4000);
+  }
+</script>
+
+</body>
+</html>
